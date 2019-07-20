@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rook-ceph-mgr-dashboard
+  namespace: rook-ceph
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.org/ssl-services: "spinnaker"
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+   - hosts:
+     - rook-ceph.stg.showks.cloudnativedays.jp
+     secretName: default/tls-certificate
+  rules:
+  - host: rook-ceph.stg.showks.cloudnativedays.jp
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: rook-ceph-mgr-dashboard
+          servicePort: https-dashboard
