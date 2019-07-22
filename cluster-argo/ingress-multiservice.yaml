@@ -18,7 +18,7 @@ spec:
   tls:
   - hosts:
     - argocd.stg.showks.cloudnativedays.jp
-    secretName: default/tls-certificate
+    secretName: tls-certificate
 
 ---
 
@@ -41,4 +41,4 @@ spec:
   tls:
   - hosts:
     - argocd-grpc.stg.showks.cloudnativedays.jp
-    secretName: default/tls-certificate
+    secretName: tls-certificate
